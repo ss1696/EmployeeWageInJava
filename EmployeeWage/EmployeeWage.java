@@ -6,37 +6,18 @@ public class EmpWage {
 	public static final int totalWorkDays = 20;
 	public static final int maxWorkHrs = 100;
 
-	public static void main(String[] args) {
+	public static int computeEmpWage() {
 	
 		int empWorkHrs=0;
-		int empWage=0;
-		int totalEmpWage=0;
-		int totalWorkingDays=0;
 		int totalWorkingHrs=0;
+		int totalWorkingDays=0;
+		int totalEmpWage=0;
 
-		while(totatotalWorkingDays<totalWorkDays &&  totalWorkingHrs<=maxWorkHrs) {
+		while(totalWorkingDays<totalWorkDays &&  totalWorkingHrs<=maxWorkHrs) {
 			
 			int empAttendance = (int)Math.floor(Math.random() *10)%3;
-			empWorkHrs = getWorkHrs(empAttendance);
 			
-			if(empAttendance==1 || empAttendance==2){
-				
-				totalWorkingDays++;
-				totalWorkingHrs=totalWorkingHrs+empWorkHrs;
-				System.out.println("Days: "+totalWorkingDays+" Employee Hrs: "+empWorkHrs);
-
-			}
-		}
-		
-		totalEmpWape=totalWorkingHrs*empRatePerHrs;
-		System.out.println("Total Employe's Wage: "+totalEmpWage);
-	}
-
-	public static int getWorkHrs(int empAttendance) {
-
-		int empWorkHrs=0;
-		
-		switch(empAttendance){
+			switch(empAttendance){
 
                         case isFullTime:
                                         empWorkHrs=8;
@@ -47,8 +28,26 @@ public class EmpWage {
                         default:
                                         empWorkHrs=0;
                         }
-		return empWorkHrs;
 
+			if(empAttendance==1 || empAttendance==2){
+				
+				totalWorkingDays++;
+				totalWorkingHrs=totalWorkingHrs+empWorkHrs;
+				System.out.println("Days: "+totalWorkingDays+" Employee Hrs: "+empWorkHrs);
+
+			}
+		}
+		
+		totalEmpWape=totalWorkingHrs*empRatePerHrs;
+
+		return totalEmpWage;
+
+	}
+
+	public static void main(String[] args) {
+
+		int totalEmpWage=computeEmpWage();
+		System.out.println("Total Emp Wage : "+totalEmpWage);
 	}
 
 }
